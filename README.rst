@@ -6,13 +6,13 @@ for now goals are:
 
 1. run on Discord
 
-1. support Shadowrun 5th Ed.
+1. roll dice to the chat
 
 
 ------------
 
 
-Modules *ready*:
+Modules *almost ready*:
 
 
 helpmsg
