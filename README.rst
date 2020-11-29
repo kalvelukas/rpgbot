@@ -1,4 +1,4 @@
-# rpgsupportbot
+**rpgsupportbot**
 
 Chatbot Project in Python
 
@@ -12,7 +12,7 @@ for now goals are:
 ------------
 
 
-Modules _ready_:
+Modules *ready*:
 
 
 helpmsg
