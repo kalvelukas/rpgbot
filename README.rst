@@ -29,12 +29,12 @@ rpgbot
 │   |   └── librarian.py
 │   ├── __init__.py
 │   └── client.py
-└── test
-    ├── test_functions      # subdir for detailed tests
-    │   ├── test_diceroller.py
-    │   └── __init__.py
-    ├── __init__.py         # test as separate package
-    └── test_client.py
+├── test
+|   ├── test_functions      # subdir for detailed tests
+|   │   ├── test_diceroller.py
+|   │   └── __init__.py
+|   ├── __init__.py         # test as separate package
+|   └── test_client.py
 |
 .
 .
