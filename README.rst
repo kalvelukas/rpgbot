@@ -4,7 +4,7 @@ Chatbot Project in Python
 
 for now my personal goals are:
 
-1. run on Discord
+1. run on Discord (discord API as documented her: https://github.com/discord/discord-api-docs)
 2. roll dice to the chat
 3. learn about test driven development
 4. learn about and try a more complex project structure (pseudocomplexity on purpose)
