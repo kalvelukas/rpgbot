@@ -27,56 +27,33 @@ Modules i managed to do so sloppy i am restructuring it completely on a test bas
 
 I aim for the following project structure: (C&C welcome)
 
-rpgbot_project
-
-├── code
-
-│   ├── functions         # all the dicerolling, random encounters etc. happening here
-
-│   |   ├── __init__.py
-
-│   |   ├── dice.py
-
-│   |   └── formatter.py
-
-│   ├── libraries         # for information the program accesses
-
-│   |   ├── resources     # stuff inside these folders, based on rule framework
-
-│   |   ├── mobs
-
-│   |   ├── npcs
-
-│   |   ├── gear
-
-│   |   ├── loot
-
-│   |   ├── quests
-
-│   |   ├── __init__.py
-
-│   |   └── librarian.py
-
-│   ├── __init__.py
-
-│   └── client.py
-
-├── test
-
-|   ├── test_functions      # subdir for subpkg tests
-
-|   │   ├── test_diceroller.py
-
-|   │   └── __init__.py
-
-|   ├── __init__.py         # test as separate package
-
-|   └── test_client.py
-
-|
-
-.
-.
-.   # stuff i missed/will learn about
+::
+   rpgbot_project
+   ├── code
+   │   ├── functions         # all the dicerolling, random encounters etc. happening here
+   │   |   ├── __init__.py
+   │   |   ├── dice.py
+   │   |   └── formatter.py
+   │   ├── libraries         # for information the program accesses
+   │   |   ├── resources     # stuff inside these folders, based on rule framework
+   │   |   ├── mobs
+   │   |   ├── npcs
+   │   |   ├── gear
+   │   |   ├── loot
+   │   |   ├── quests
+   │   |   ├── __init__.py
+   │   |   └── librarian.py
+   │   ├── __init__.py
+   │   └── client.py
+   ├── test
+   |   ├── test_functions      # subdir for subpkg tests
+   |   │   ├── test_diceroller.py
+   |   │   └── __init__.py
+   |   ├── __init__.py         # test as separate package
+   |   └── test_client.py
+   |
+   .
+   .
+   .   # stuff i missed/will learn about
 
 ------------
