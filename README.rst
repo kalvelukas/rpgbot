@@ -10,6 +10,15 @@ for now my personal goals are:
 4. learn about and try a more complex project structure (pseudocomplexity on purpose)
 5. at least get the diceroller ready in january ;)
 ------------
+Modules i managed to do so sloppy i am restructuring it completely on a test basis:
+- helpmsg
+- diceroll
+------------
+**I really have to clean up a lot of mess**
+- redo code structure
+- create sensible packages
+- write the tests
+------------
 I aim for the following project structure: (C&C welcome)
 
 rpgbot_project
@@ -39,13 +48,4 @@ rpgbot_project
 .
 .
 .   # stuff i missed/will learn about
-
 ------------
-Modules i managed to do so sloppy i am restructuring it completely on a test basis:
-- helpmsg
-- diceroll
-------------
-**I really have to clean up a lot of mess**
-- redo code structure
-- create sensible packages
-- write the tests
