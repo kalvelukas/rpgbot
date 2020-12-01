@@ -13,12 +13,14 @@ for now my personal goals are:
 ------------
 
 Modules i managed to do so sloppy i am restructuring it completely on a test basis:
+
 - helpmsg
 - diceroll
 
 ------------
 
 **I really have to clean up a lot of mess**
+
 - redo code structure
 - create sensible packages
 - write the tests
