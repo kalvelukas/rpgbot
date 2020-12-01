@@ -76,9 +76,7 @@ rpgbot_project
 |
 
 .
-
 .
-
 .   # stuff i missed/will learn about
 
 ------------
