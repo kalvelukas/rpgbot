@@ -1,10 +1,10 @@
-#self defined
-import sample.functions
+# #self defined
+# import sample.functions
 
-#generics
-import datetime
-import discord
-import importlib
+# #generics
+# import datetime
+# import discord
+# import importlib
 
-client = functions.bot.MyClient()
-client.run("DISCORD BOT TOKEN")
+# client = functions.bot.MyClient()
+# client.run("DISCORD BOT TOKEN")
