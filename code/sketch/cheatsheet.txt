@@ -1,3 +1,9 @@
+# SETUP
+
+python3 -m pip install -U discord
+
+
+# get tests running
 
 cd  to your PATH...\project_rpgbot
 python -m unittest tests.test_dice

@@ -4,19 +4,27 @@ from code import dice
 
 class TestRoll(unittest.TestCase):
     def setUp(self):
+        notimplist = [101, 102, 103, 104, 1000, 10000, 1000000]
+        valerrlist = [-6, -1, 0, ]
+        typerrlist = ['a', '<df43rt', '3q4t34t09er', 0.4, 1.9, 10.123]
         pass 
     def tearDown(self):
         pass
     def test_roll_len(self):
         """Arg1 is number of dice, Arg2 is pips on the dice, default is 1d6"""
     #TODO iterate list of good/bad values, get right values.
-        self.assertEqual((len(dice.roll(50)) == 50), True)
-        self.assertEqual((len(dice.roll(20, 40)) == 20), True)
-        self.assertEqual((len(dice.roll(100, 100)) == 100), True)
-        self.assertEqual((len(dice.roll(1)) == 1), True)
+        goodlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        for entry in goodlist:    
+            self.assertEqual((len(dice.roll(entry)) == entry), True)
+        for entry in goodlist:
+            self.assertEqual((len(dice.roll(entry, entry)) == entry), True)
         self.assertEqual((len(dice.roll()) == 1), True)
-        self.assertEqual((len(dice.roll(1, 90000)) == 1), True)
-        self.assertEqual((len(dice.roll(1,30)) == 1), True)
+        
+            # self.assertEqual((len(dice.roll(20, 40)) == 20), True)
+            # self.assertEqual((len(dice.roll(100, 100)) == 100), True)
+            # self.assertEqual((len(dice.roll(1)) == 1), True)
+            # self.assertEqual((len(dice.roll(1, 90000)) == 1), True)
+            # self.assertEqual((len(dice.roll(1,30)) == 1), True)
 
     def test_roll_max(self):
         self.assertEqual((max(dice.roll()) <= 6), True)
