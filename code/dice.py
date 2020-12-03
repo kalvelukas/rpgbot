@@ -35,7 +35,7 @@ class roll_super():
                 resultlist.append(result)
             return resultlist
         elif dicenumber > 10000:
-            raise NotImplementedError("Too much to display for now")
+            raise NotImplementedError("Too much to work with for now")
 
     def modify(self):
         """Apply a modifier on the diceroll, ex. + or -."""
