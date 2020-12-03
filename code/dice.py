@@ -3,7 +3,7 @@
 """
 import random
 
-class roll_super():
+class RollSuper():
     """superclass
     """
     def check_negative(self, dicenumber: int = 1, dicepips: int = 1, modifier: int = 1):
@@ -44,7 +44,7 @@ class roll_super():
         """allow for rerolls of certain failed throws"""
         pass
 
-class roll_standard(roll_super):
+class RollStandard(RollSuper):
     """roll (multiple) dice
     """
     def __init__(self):
@@ -52,15 +52,15 @@ class roll_standard(roll_super):
         self.dicepips = 6
     pass
 
-class roll_rerolls(roll_super):
+class RollRerolls(RollSuper):
     """ roll rerolls on certain dice
     """
 
-class roll_modified(roll_super):
+class RollModified(RollSuper):
     """roll modified dice
     """
 
 if __name__ == "__main__":
-    roll = roll_standard()
+    roll = RollStandard()
     result = roll.roll(20, 20)
     print(str(result))

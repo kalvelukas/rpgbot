@@ -1,10 +1,12 @@
-"""test the code.dice -module."""
+"""test the code.RollStandard -module."""
 import unittest
 
 from code import dice
+from code.dice import RollStandard
 
-class TestRoll(unittest.TestCase):
+class TestRollStandard(unittest.TestCase):
     def setUp(self):
+        roll1 = RollStandard
         self.numblist = list(range(1, 100, 5))
         self.pipslist = list(range(1, 10001, 100))
         self.frinlist = list(range(101, 10001, 100))
@@ -18,34 +20,34 @@ class TestRoll(unittest.TestCase):
         pass
 
     def test_roll(self):
-        self.assertEqual((len(dice.roll()) == 1), True)
-        self.assertEqual((max(dice.roll()) <= 6), True)
+        self.assertEqual((len(roll1.roll()) == 1), True)
+        self.assertEqual((max(roll1.roll()) <= 6), True)
         for numb in self.numblist:    
-            self.assertEqual((min(dice.roll(numb, 100)) >= 1), True)
-            self.assertEqual((max(dice.roll(numb)) <= 6), True)
-            self.assertEqual((len(dice.roll(numb)) == numb), True)
-            self.assertEqual((len(dice.roll(numb, numb)) == numb), True)
-            self.assertEqual((max(dice.roll(numb, numb)) <= numb), True)
+            self.assertEqual((min(roll1.roll(numb, 100)) >= 1), True)
+            self.assertEqual((max(roll1.roll(numb)) <= 6), True)
+            self.assertEqual((len(RollStandard.roll(numb)) == numb), True)
+            self.assertEqual((len(RollStandard.roll(numb, numb)) == numb), True)
+            self.assertEqual((max(RollStandard.roll(numb, numb)) <= numb), True)
             for pips in self.pipslist:
-                self.assertEqual((max(dice.roll(numb, pips)) <= pips), True)
-                self.assertEqual((len(dice.roll(numb, pips)) == numb), True)
+                self.assertEqual((max(RollStandard.roll(numb, pips)) <= pips), True)
+                self.assertEqual((len(RollStandard.roll(numb, pips)) == numb), True)
         # for char in self.charlist:
-        #     self.assertRaises(TypeError, dice.roll, char)
-        #     self.assertRaises(TypeError, dice.roll, char, char)
+        #     self.assertRaises(TypeError, RollStandard.roll, char)
+        #     self.assertRaises(TypeError, RollStandard.roll, char, char)
         #     for pips in self.pipslist:
-        #         self.assertRaises(TypeError, dice.roll, char, pips)
-        #         self.assertRaises(TypeError, dice.roll, pips, char)
+        #         self.assertRaises(TypeError, RollStandard.roll, char, pips)
+        #         self.assertRaises(TypeError, RollStandard.roll, pips, char)
         #     for floa in self.floalist:
-        #         self.assertRaises(TypeError, dice.roll, char, floa)
-        #         self.assertRaises(TypeError, dice.roll, floa, floa)
+        #         self.assertRaises(TypeError, RollStandard.roll, char, floa)
+        #         self.assertRaises(TypeError, RollStandard.roll, floa, floa)
         # for nega in self.negalist:
-        #     self.assertRaises(ValueError, dice.roll, nega)
-        #     self.assertRaises(ValueError, dice.roll, nega, nega)
+        #     self.assertRaises(ValueError, RollStandard.roll, nega)
+        #     self.assertRaises(ValueError, RollStandard.roll, nega, nega)
         #     for pips in self.pipslist:
-        #         self.assertRaises(ValueError, dice.roll, nega, pips)
+        #         self.assertRaises(ValueError, RollStandard.roll, nega, pips)
         # for entry in self.frinlist:
-        #     self.assertRaises(NotImplementedError, dice.roll, entry)
-        #     self.assertRaises(NotImplementedError, dice.roll, entry, entry)
+        #     self.assertRaises(NotImplementedError, RollStandard.roll, entry)
+        #     self.assertRaises(NotImplementedError, RollStandard.roll, entry, entry)
 
     def test_modify(self):
         pass
