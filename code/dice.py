@@ -3,37 +3,64 @@
 """
 import random
 
-def roll (dicenumber: int = 1, dicepips: int = 6, limit=100) -> list:
-    """Take 2 integers return as many as first integer random integers
-       (max value <= second integer) as list.
-       """
-    if isinstance(dicenumber, int) and isinstance(dicepips, int):
-        if dicenumber <= 100:
-            if (dicepips > 0 and dicenumber > 0):
-                resultlist = list(())
-                i = 0
-                while (i < dicenumber):
-                    i += 1
-                    result = random.randint(1, dicepips)
-                    resultlist.append(result)
-                return resultlist
-            elif (dicenumber == 0 or dicepips == 0):
-                raise ValueError("Can't roll Zeros")
-            else:
-                raise ValueError("Can't roll negatives")
+class roll_super():
+    """superclass
+    """
+    def check_negative(self, dicenumber: int = 1, dicepips: int = 1, modifier: int = 1):
+        """take up to three variables, check >= 1"""
+        if dicenumber > 0 and dicepips > 0:
+            return
         else:
+            raise ValueError("Can't roll less than one")
+        pass
+    def verify_type_integer(self, dicenumber, dicepips, modifier: int = 1):
+        if isinstance(dicenumber, int) and isinstance(dicepips, int):
+            return
+        else:
+            raise TypeError("Input not of Type Integer")
+    def roll(self, dicenumber: int = 1, dicepips: int = 6, limit=10000) -> list:
+        """Take 2 integers return as many as first integer random integers
+        (max value <= second integer) as list.
+        """
+        self.dicenumber = dicenumber
+        self.dicepips = dicepips
+        self.verify_type_integer(self.dicenumber, self.dicepips)
+        self.check_negative(self.dicenumber, self.dicepips)
+        if self.dicenumber > 0 and self.dicepips > 0:
+            resultlist = list(())
+            i = 0
+            while (i < dicenumber):
+                i += 1
+                result = random.randint(1, dicepips)
+                resultlist.append(result)
+            return resultlist
+        elif dicenumber > 10000:
             raise NotImplementedError("Too much to display for now")
-    else:
-        raise TypeError
 
-def modify ():
-    """Apply a modifier on the diceroll, ex. + or -."""
+    def modify(self):
+        """Apply a modifier on the diceroll, ex. + or -."""
+        pass
+    def reroll(self):
+        """allow for rerolls of certain failed throws"""
+        pass
+
+class roll_standard(roll_super):
+    """roll (multiple) dice
+    """
+    def __init__(self):
+        self.dicenumber = 1
+        self.dicepips = 6
     pass
 
-def reroll ():
-    """allow for rerolls of certain failed throws"""
-    pass
+class roll_rerolls(roll_super):
+    """ roll rerolls on certain dice
+    """
 
-# if __name__ == "__main__":
-#     result = roll(int(input()), int(input()))
-#     print(str(result))
+class roll_modified(roll_super):
+    """roll modified dice
+    """
+
+if __name__ == "__main__":
+    roll = roll_standard()
+    result = roll.roll(20, 20)
+    print(str(result))
