@@ -4,8 +4,7 @@ import random
 
 import discord
 
-from code import dice
-from dice import roll_standard
+from code.functions.dice import RollStandard
 
 def main():
     print("has to be run by discord client")

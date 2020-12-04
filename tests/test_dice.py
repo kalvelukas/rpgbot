@@ -1,8 +1,9 @@
 """test the code.RollStandard -module."""
 import unittest
 
-from code import dice
-from code.dice import RollStandard
+from code import functions
+from code.functions import dice
+from code.functions.dice import RollStandard
 
 class TestRollStandard(unittest.TestCase):
     @classmethod
