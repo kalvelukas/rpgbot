@@ -4,10 +4,9 @@ import random
 
 import discord
 
-from code.functions.dice import RollStandard
+import functions.dice
 
-def main():
-    print("has to be run by discord client")
+
 
 class RpgBot(discord.Client):
 #### BOT ReadyMsg plus Logfile datetime entry ###
@@ -55,6 +54,11 @@ class RpgBot(discord.Client):
             f.write(str(datetime_object) + " BOTKILL\n")
             print("bot ended")
             exit()
+
+if __name__ == "__main__":
+    def main():
+        print("has to be run by discord client")
+        
 
 client = RpgBot()
 token = str(input())
