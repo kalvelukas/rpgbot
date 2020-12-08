@@ -4,11 +4,10 @@ import random
 
 import discord
 
-import functions.dice
-
-
+from code.functions import dice as dice
 
 class RpgBot(discord.Client):
+    """Lukas' discord client"""
 #### BOT ReadyMsg plus Logfile datetime entry ###
     async def on_ready(self):
         f = open("logfile.txt", "a")
@@ -21,19 +20,14 @@ class RpgBot(discord.Client):
         print(str(message.author) + " " + str(message.content))
 ## FUNTIONALITIES FOR EVERYONE
         ### BOTHELP
-        if message.content.startswith("/bothelp"):
-            await message.author.send("__**Hello**__,\nI'm your friendly Channel Bot.\n\nYou typed /bothelp for help. May I help you?\n\nIf You need help, look at my one functionality below.\n\n\n-> for some dicerolling, type */roll [amount]d[pips]s[number needed]*, for example /roll 5d6s4", delete_after=30)
+        if message.content.startswith("Hey!"):
+            await message.author.send("__**Hello**__,\nI'm your friendly Channel Bot.")
             return
-        ### DICEROLL
+        ### DICEROLL "delete.after = 30"
         if message.content.startswith("/roll "):
-            # rollcommand = message.content.split(" ")[1]
-            # diceroll = rollcommand.lower()
-
-            # diceroller = funclib.roll()
-            # result = diceroller.rollplayer(diceroll)
-            # roller = code.dice
-
-            # await message.channel.send(str(result))
+            rollcommand = message.content.split(" ")[1]
+            diceroll = dice.roll(rollcommand)
+            await message.channel.send(str(diceroll))
             return
 
 ## ADMINISTRATION
@@ -54,11 +48,6 @@ class RpgBot(discord.Client):
             f.write(str(datetime_object) + " BOTKILL\n")
             print("bot ended")
             exit()
-
-if __name__ == "__main__":
-    def main():
-        print("has to be run by discord client")
-        
 
 client = RpgBot()
 token = str(input())
