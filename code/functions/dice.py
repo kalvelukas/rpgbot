@@ -3,9 +3,11 @@
 """
 # stlib
 import random
-import re
+# import re
+from nice import formatter as formatter
 
 def limit_inputstring(inputstring: str):
+    """clean input"""
     inputstring = inputstring[:20]
     if "m" and "r" and "s" in inputstring:
         return inputstring
@@ -19,20 +21,22 @@ def limit_inputstring(inputstring: str):
         return "1d6"
 
 def check_inputstring(inputstring):
-    # return inputstring
-    pass
+    """check data integrity"""
+    return inputstring
 
 def split_inputstring(inputstring):
     """Split String Input"""
-    # splithelp = str(inputstring.split("d")[1])
-    # if ("s" in splithelp):
-    #     dicepips = splithelp.split("s")[0]
-    #     desire = diceroll.split("s")[1]
-    # else:
-    #     dicepips = diceroll.split("d")[1]
-    pass
+    splithelp = str(inputstring.split("d")[1])
+    if "s" in splithelp:
+        dicepips = splithelp.split("s")[0]
+        desire = splithelp.split("s")[1]
+        return dicepips, desire
+    else:
+        dicepips = splithelp.split("d")[1]
+        return dicepips
 
 def check_numeric(diceamount, dicepips):
+    """check if input numeric"""
     if diceamount.isnumeric() and dicepips.isnumeric():
         rollparams = list(())
         rollparams.append(int(diceamount))
@@ -49,8 +53,9 @@ def check_roll_value(dicenumber, dicepips):
         raise ValueError("Can't roll less than one")
 
 def verify_type_integer(dicenumber, dicepips, modifier: int = 1):
+    """verify if integer"""
     if isinstance(dicenumber, int) and isinstance(dicepips, int):
-        return
+        return modifier
     else:
         raise TypeError("Input not of Type Integer")
 
@@ -61,7 +66,7 @@ def roll(dicenumber: int = 1, dicepips: int = 6, limit=150) -> list:
     """
     resultlist = list(())
     i = 0
-    while (i < dicenumber):
+    while i < dicenumber:
         i += 1
         result = random.randint(1, dicepips)
         resultlist.append(result)
@@ -69,27 +74,25 @@ def roll(dicenumber: int = 1, dicepips: int = 6, limit=150) -> list:
 
 def modify():
     """Apply a modifier on the diceroll, ex. + or -"""
-    pass
 
 def reroll():
     """allow for rerolls of certain failed throws"""
-    pass
 
 def rollnpc(diceamount, dicepips):
     """Rolls of a NPC."""
-    pass
 
 
-# def rollplayer(diceroll):
-#     if (("d" in diceroll) and len(diceroll) < 15):
-#         params = splitter(diceroll)
-#         if params == .errormsg:
-#             return .errormsg
-#         results = .roller(params)
-#         formatted = .formatter(results, params)
-#         return formatted
-#     else:
-#         raise ValueError
+def rollplayer(diceroll):
+    """Docstring"""
+    if (("d" in diceroll) and len(diceroll) < 15):
+        params = splitter(diceroll)
+        if params == self.errormsg:
+            return self.errormsg
+        results = roll(params)
+        formatted = formatter(results, params)
+        return formatted
+    else:
+        raise ValueError
 
 if __name__ == "__main__":
     print(limit_inputstring("awdpawdkpaowkdpodawdokapwkdpoawdkawpodkawpodkwapwadawdwadwa"))

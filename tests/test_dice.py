@@ -1,9 +1,11 @@
-"""test the code.RollStandard -module."""
+"""test the code.functions.dice -module."""
 import unittest
 
-import code.functions.dice
+from code.functions.dice import roll as roll_test
+from code.functions.dice import check_numeric as check_numeric_test
 
 class TestDice(unittest.TestCase):
+    """TestClass for """
     @classmethod
     def setUpClass(cls):
         pass
@@ -14,22 +16,24 @@ class TestDice(unittest.TestCase):
 
     def setUp(self):
         pass
-        
+
     def tearDown(self):
         pass
 
     def test_roll(self):
-        self.assertEqual((len(code.functions.dice.roll()) == 1), True)
-        self.assertEqual((max(code.functions.dice.roll()) <= 6), True)
-        self.assertEqual((len(code.functions.dice.roll(30, 20))) == 30, True)
-        self.assertEqual((len(code.functions.dice.roll(15,30))) == 20, False)
-        
+        """test the roll"""
+        self.assertEqual((len(roll_test()) == 1), True)
+        self.assertEqual((max(roll_test()) <= 6), True)
+        self.assertEqual((len(roll_test(30, 20))) == 30, True)
+        self.assertEqual((len(roll_test(15,30))) == 20, False)
+
     def test_value_check(self):
-        self.assertRaises(TypeError, code.functions.dice.check_numeric, "a", "aawc")
-        self.assertRaises(TypeError, code.functions.dice.check_numeric, "ad", "awdd")
-        
+        """Test type checker"""
+        self.assertRaises(TypeError, check_numeric_test, "a", "aawc")
+        self.assertRaises(TypeError, check_numeric_test, "ad", "awdd")
+
     def test_roll_modified(self):
-        pass
-    
+        """test roll modifier"""
+
     def test_roll_rerolls(self):
-        pass
+        """test reroller"""

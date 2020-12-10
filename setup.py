@@ -1,3 +1,3 @@
-#import sys
-#sys.path.insert(0,'C:\\kalvelukas\\project_shadowbot\\')
-#print(str(sys.path))
+import sys
+sys.path.append('C:\\kalvelukas\\rpgbot\\code')
+print(str(sys.path))

@@ -1,3 +1,7 @@
 2020-12-03 22:54:58.453843 Bot logged in on Server
 2020-12-03 23:58:18.217578 Bot logged in on Server
 2020-12-03 23:59:11.976343 BOTKILL
+2020-12-08 16:26:03.917147 Bot logged in on Server
+2020-12-08 16:29:58.635483 Bot logged in on Server
+2020-12-08 16:33:09.561205 BOTKILL
+2020-12-10 13:41:57.143155 Bot logged in on Server

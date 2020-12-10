@@ -1,22 +1,26 @@
+"""Overwritten discord.Client Class"""
 import datetime
-import importlib
-import random
+# import importlib
+# import random
+import sys
 
 import discord
 
-from code.functions import dice as dice
+from functions.dice import roll as rollbot
 
 class RpgBot(discord.Client):
     """Lukas' discord client"""
 #### BOT ReadyMsg plus Logfile datetime entry ###
     async def on_ready(self):
-        f = open("logfile.txt", "a")
+        """post a log entry to logfile when logging in"""
+        file_object = open("logfile.txt", "a")
         datetime_object = datetime.datetime.now()
-        f.write(str(datetime_object) + " Bot logged in on Server\n")
+        file_object.write(str(datetime_object) + " Bot logged in on Server\n")
         print(str(datetime_object) + " I'm there!!! BeepBoop!")
         return
 #### BOT ACTIONS ON MSG in channels
     async def on_message(self, message):
+        """when a message is posted in a chat, do..."""
         print(str(message.author) + " " + str(message.content))
 ## FUNTIONALITIES FOR EVERYONE
         ### BOTHELP
@@ -26,7 +30,7 @@ class RpgBot(discord.Client):
         ### DICEROLL "delete.after = 30"
         if message.content.startswith("/roll "):
             rollcommand = message.content.split(" ")[1]
-            diceroll = dice.roll(rollcommand)
+            diceroll = rollbot(int(rollcommand))
             await message.channel.send(str(diceroll))
             return
 
@@ -41,14 +45,14 @@ class RpgBot(discord.Client):
         #     importlib.reload(code.dice)
             # return
         #### BOTKILL ###
-        if (message.content.startswith("/gosleep")):
-            f = open("logfile.txt", "a")
+        if message.content.startswith("/gosleep"):
+            file_object = open("logfile.txt", "a")
             datetime_object = datetime.datetime.now()
             print(datetime_object)
-            f.write(str(datetime_object) + " BOTKILL\n")
+            file_object.write(str(datetime_object) + " BOTKILL\n")
             print("bot ended")
-            exit()
+            sys.exit()
 
 client = RpgBot()
-token = str(input())
-client.run(token)
+TOKEN = input()
+client.run(TOKEN)
