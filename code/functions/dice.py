@@ -86,8 +86,6 @@ def rollplayer(diceroll):
     """Docstring"""
     if (("d" in diceroll) and len(diceroll) < 15):
         params = splitter(diceroll)
-        if params == self.errormsg:
-            return self.errormsg
         results = roll(params)
         formatted = formatter(results, params)
         return formatted
