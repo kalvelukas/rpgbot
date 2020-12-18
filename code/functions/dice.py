@@ -1,10 +1,11 @@
-#dice.py
+# dice.py
 """take parameters and return a list of random numbers.
 """
 # stlib
 import random
 # import re
-from nice import formatter as formatter
+import slice as formatter
+
 
 def limit_inputstring(inputstring: str):
     """clean input"""
@@ -20,9 +21,11 @@ def limit_inputstring(inputstring: str):
     else:
         return "1d6"
 
+
 def check_inputstring(inputstring):
     """check data integrity"""
     return inputstring
+
 
 def split_inputstring(inputstring):
     """Split String Input"""
@@ -35,6 +38,7 @@ def split_inputstring(inputstring):
         dicepips = splithelp.split("d")[1]
         return dicepips
 
+
 def check_numeric(diceamount, dicepips):
     """check if input numeric"""
     if diceamount.isnumeric() and dicepips.isnumeric():
@@ -45,12 +49,14 @@ def check_numeric(diceamount, dicepips):
     else:
         raise TypeError
 
+
 def check_roll_value(dicenumber, dicepips):
     """Check if roll value is between 1 and 99."""
     if dicenumber > 0 and dicepips > 0:
         return
     else:
         raise ValueError("Can't roll less than one")
+
 
 def verify_type_integer(dicenumber, dicepips, modifier: int = 1):
     """verify if integer"""
@@ -72,11 +78,14 @@ def roll(dicenumber: int = 1, dicepips: int = 6, limit=150) -> list:
         resultlist.append(result)
     return resultlist
 
+
 def modify():
     """Apply a modifier on the diceroll, ex. + or -"""
 
+
 def reroll():
     """allow for rerolls of certain failed throws"""
+
 
 def rollnpc(diceamount, dicepips):
     """Rolls of a NPC."""
@@ -85,13 +94,15 @@ def rollnpc(diceamount, dicepips):
 def rollplayer(diceroll):
     """Docstring"""
     if (("d" in diceroll) and len(diceroll) < 15):
-        params = splitter(diceroll)
+        params = split_inputstring(diceroll)
         results = roll(params)
         formatted = formatter(results, params)
         return formatted
     else:
         raise ValueError
 
+
 if __name__ == "__main__":
-    print(limit_inputstring("awdpawdkpaowkdpodawdokapwkdpoawdkawpodkawpodkwapwadawdwadwa"))
+    print(limit_inputstring("""awdpawdkpaowkdpodawdokapwkdpoawd
+    kawpodkawpodkwapwadawdwadwa"""))
     print(check_inputstring("651964151698512168484"))
